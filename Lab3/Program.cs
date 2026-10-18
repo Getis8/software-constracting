@@ -17,6 +17,9 @@ public class Program
         Console.WriteLine();
         Console.WriteLine("=== Завдання 2 ===");
         Task2Demo.Run();
+        Console.WriteLine();
+        Console.WriteLine("=== Завдання 3 ===");
+        Task3Demo.Run();
     }
     private static void RunTask1()
     {

@@ -8,6 +8,18 @@ public class Program
 
     public static void Main(string[] args)
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.InputEncoding = System.Text.Encoding.UTF8;
+
+        Console.WriteLine("=== Завдання 1 ===");
+        RunTask1();
+
+        Console.WriteLine();
+        Console.WriteLine("=== Завдання 2 ===");
+        Task2Demo.Run();
+    }
+    private static void RunTask1()
+    {
         // 1. Генерація: 1 - місце зайняте, 0 - вільне
         int[,] hall = GenerateHall();
 

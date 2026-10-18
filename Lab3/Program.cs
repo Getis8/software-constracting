@@ -25,6 +25,13 @@ public class Program
         }
 
         PrintMatrix(loaded);
+
+                List<int> freeRows = FindFreeRows(loaded);
+
+        if (freeRows.Count > 0)
+            Console.WriteLine("Повністю вільні ряди: " + string.Join(", ", freeRows));
+        else
+            Console.WriteLine("Повністю вільних рядів немає.");
     }
 
     private static int[,] GenerateHall()
@@ -47,6 +54,27 @@ public class Program
         return hall;
     }
 
+        // Повертає номери (з 1) рядів, де всі місця вільні
+    private static List<int> FindFreeRows(int[,] hall)
+    {
+        var freeRows = new List<int>();
+
+        for (int i = 0; i < hall.GetLength(0); i++)
+        {
+            bool isFree = true;
+            for (int j = 0; j < hall.GetLength(1); j++)
+            {
+                if (hall[i, j] == 1)
+                {
+                    isFree = false;
+                    break;
+                }
+            }
+            if (isFree) freeRows.Add(i + 1);
+        }
+        return freeRows;
+    }
+
     private static void PrintMatrix(int[,] matrix)
     {
         for (int i = 0; i < matrix.GetLength(0); i++)
@@ -58,4 +86,6 @@ public class Program
             Console.WriteLine();
         }
     }
+
+    
 }
